@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>Remove client</title>
+
+    <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
+
+</head>
+
+<body>
+
+  <html lang="en-US">
+  <head>
+
+    <meta charset="utf-8">
+
+    <title>Login</title>
+
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,700">
+
+    <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+ <![endif]-->
+
+  </head>
+
+  <body>
+
+    <div class="container">
+      
+      <div id="login">
+
+        <form action="removefromclients.cgi" method="POST">
+
+          <fieldset class="clearfix">
+            <p>Re-enter client information to delete</p>
+            <p><span class="fontawesome-user"></span><input type="text" name="firstName" value="First Name" onBlur="if(this.value == '') this.value = 'First Name'" onFocus="if(this.value == 'First Name') this.value = ''" required></p> <!-- JS because of IE support; better: placeholder="First Name" -->
+            <p><span class="fontawesome-user"></span><input type="text"  name="lastName" value="Last Name" onBlur="if(this.value == '') this.value = 'Last Name'" onFocus="if(this.value == 'Last Name') this.value = ''" required></p> <!-- JS because of IE support; better: placeholder="Last Name" -->
+
+            <p><input type="submit" value="Delete Permanently"></p>
+          </fieldset>
+
+        </form>
+        
+      </div> <!-- end login -->
+
+    </div>
+  </body>
+</html>
+
+</body>
+</html>

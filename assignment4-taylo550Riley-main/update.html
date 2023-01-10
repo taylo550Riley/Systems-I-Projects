@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="UTF-8">
+
+  <title>Update client information</title>
+
+    <link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
+
+</head>
+
+<body>
+
+  <html lang="en-US">
+  <head>
+
+    <meta charset="utf-8">
+
+    <title>Login</title>
+
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,700">
+
+    <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+ <![endif]-->
+
+  </head>
+
+  <body>
+
+    <div class="container">
+      
+      <div id="login">
+
+        <form action="update.cgi" method="POST">
+
+          <fieldset class="clearfix">
+            <p>Update Client's Information</p>
+            <p><span class="fontawesome-user"></span><input type="text" name="firstName" value="First Name" onBlur="if(this.value == '') this.value = 'First Name'" onFocus="if(this.value == 'First Name') this.value = ''" required></p> <!-- JS because of IE support; better: placeholder="First Name" -->
+            <p><span class="fontawesome-user"></span><input type="text"  name="lastName" value="Last Name" onBlur="if(this.value == '') this.value = 'Last Name'" onFocus="if(this.value == 'Last Name') this.value = ''" required></p> <!-- JS because of IE support; better: placeholder="Last Name" -->
+            <p><span class="fontawesome-phone"></span><input type="text" name="phoneNumber" value="Phone Number" onBlur="if(this.value == '') this.value = 'Phone Number'" onFocus="if(this.value == 'Phone Number') this.value = ''" required></p> <!-- JS because of IE support; better: placeholder=\"Phone Number\" -->
+            <p><span class="fontawesome-user"></span><input type="text" name="address" value="Address" onBlur="if(this.value == '') this.value = 'Address'" onFocus="if(this.value == 'Address') this.value = ''" required></p> <!-- JS because of IE support; better: placeholder="Address" -->
+
+            <p>Update Client's Pet Information</p>
+            <p><span class="fontawesome-circle-arrow-right"></span><input type="text" name="petName" value="Pet Name" onBlur="if(this.value == '') this.value = 'Pet Name'" onFocus="if(this.value == 'Pet Name') this.value = ''" required></p> <!-- JS because of IE support; better: placeholder="Pet Name" -->
+            <p><span class="fontawesome-circle-arrow-right"></span><input type="text" name="breed" value="Breed" onBlur="if(this.value == '') this.value = 'Breed'" onFocus="if(this.value == 'Breed') this.value = ''" required></p> <!-- JS because of IE support; better: placeholder="Breed" -->
+            <p><span class="fontawesome-circle-arrow-right"></span><input type="text" name="age" value="Age" onBlur="if(this.value == '') this.value = 'Age'" onFocus="if(this.value == 'Age') this.value = ''" required></p> <!-- JS because of IE support; better: placeholder="Age" -->
+            <p><span class="fontawesome-circle-arrow-right"></span><input type="text" name="allergies" value="Allergies" onBlur="if(this.value == '') this.value = 'Allergies'" onFocus="if(this.value == 'Allergies') this.value = ''" required></p> <!-- JS because of IE support; better: placeholder="Allergies" -->
+            <p><span class="fontawesome-circle-arrow-right"></span><input type="text" name="size" value="Size" onBlur="if(this.value == '') this.value = 'Size'" onFocus="if(this.value == 'Size') this.value = ''" required></p> <!-- JS because of IE support; better: placeholder="Size" -->
+            <p><span class="fontawesome-circle-arrow-right"></span><input type="text" name="groomedBefore" value="Groomed Before?" onBlur="if(this.value == '') this.value = 'Groomed Before?'" onFocus="if(this.value == 'Groomed Before?') this.value = ''" required></p> <!-- JS because of IE support; better: placeholder="Groomed Before?" -->
+            <p><span class="fontawesome-circle-arrow-right"></span><input type="text" name="generalBehavior" value="General Behavior" onBlur="if(this.value == '') this.value = 'General Behavior'" onFocus="if(this.value == 'General Behavior') this.value = ''" required></p> <!-- JS because of IE support; better: placeholder="General Behavior" -->
+            <p><span class="fontawesome-circle-arrow-right"></span><input type="text" name="cageShy" value="Cage Shy?" onBlur="if(this.value == '') this.value = 'Cage Shy?'" onFocus="if(this.value == 'Cage Shy?') this.value = ''" required></p> <!-- JS because of IE support; better: placeholder="Cage Shy?" -->
+            <p><span class="fontawesome-stethoscope"></span><input type="text" name="vet" value="Vet" onBlur="if(this.value == '') this.value = 'Vet'" onFocus="if(this.value == 'Vet') this.value = ''" required></p> <!-- JS because of IE support; better: placeholder="Vet" -->
+
+            <p><input type="submit" value="Update Information"></p>
+          </fieldset>
+
+        </form>
+        
+      </div> <!-- end login -->
+
+    </div>
+  </body>
+</html>
+
+</body>
+</html>

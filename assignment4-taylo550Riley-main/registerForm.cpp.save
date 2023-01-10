@@ -1,0 +1,79 @@
+/*
+ * This program shows how to use the MySQL++ wrapper for the MySQL C APIs.
+ * It connects a CGI program to a MySQL database.
+ * Author: Qusay Mahmoud
+ */
+
+#define MYSQLPP_MYSQL_HEADERS_BURIED
+#include <mysql++/mysql++.h>
+#include <string>
+#include <iostream>
+#include "getpost.h"
+
+using namespace std;
+
+int main(int argc, char* argv[]) {
+
+    map<string,string> Get;
+    initializePost(Get);
+    cout << "<!DOCTYPE html>" << endl;
+    cout << "<html><head><meta charset=\"UTF-8\"" << endl;
+    cout << "<title>Code-Pen - Register</title>" << endl;
+    cout << "<link rel=\"stylesheet\" href=\"css/style.css\ ";
+    cout << "media=\"screen\" type=\"text/css\" />" << endl;
+    cout << "</head>" << endl;
+    cout << "<body><html lang=\"en-US\"><head>" << endl;
+    cout << "<meta charset=\"utf-8\"><title>Register</title>" << endl;
+    cout << "<link rel=\"stylesheet\" href=\"fonts.googleapis.com/css?family=Open+Sans:400,700\">" << endl;
+    cout << "<!--[if lt IE 9]>" << endl;
+    cout << "<script src=\"html5shiv.googlecode.com/svn/trunk/html5.js\"></sc\"></script>" << endl;    
+    cout << "<![endif]-->" << endl;
+    cout << "</head><body><div class=\"container\">" << endl;
+    cout << "<div id=\"Username\">" << endl;
+    cout << "<form action=\"display.cgi\" method=\"POST\">" << endl;
+    cout << "<fieldset class=\"clearfix\">" << endl;
+    //cout << "<p><span class=\"fontawesome-user\"></span><input type=\"text\" ";
+    //cout << "name=\"username"
+    cout << 
+
+    std::string username;
+    std::string password;
+    std::string email;
+
+    if (Get.find("username")!=Get.end() && Get.find("password")!=Get.end()) {
+        cout << "<p>You entered, username: "<<Get["username"]<<" and password: "<<Get["password"] << endl;
+        username = Get["username"];
+        password = Get["password"];
+    } else {
+        cout << "<p>Fill out the from and press submit"<<endl;
+    }
+    cout << "</body></html>" << endl;
+
+    // Connect to database with: database, server, userID, password
+    mysqlpp::Connection conn(false); // Exceptions suppressed to keep code simple
+    if(conn.connect("cse278", "localhost", "cse278", "MonSepM1am1")) {
+
+        // Create a query
+        mysqlpp::Query query = conn.query();
+
+        //query << "INSERT into Users (username, password) VALUES('"+username+"', md5('"+password+"'));";
+        query << "INSERT into taylo550Table1 (Username, Password) VALUES(%0q, md5(%1q));";
+
+        query.parse();  // check to ensure it is correct
+
+        // Run the query -- note INSERT does not return results so we are using SimpleResult
+        //mysqlpp::SimpleResult result = query.execute();
+        mysqlpp::SimpleResult result = query.execute(username, password);
+
+        // Always check for errors
+        if(result) {
+            cout <<"<p>Query success...\n";
+        } else {
+            cerr << "Query error: " << query.error() << endl;
+        }
+        return(0);
+    } else {
+        cerr << "Connection failed: " << conn.error() <<endl;
+        return(1);
+    }
+}
